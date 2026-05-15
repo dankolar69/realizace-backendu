@@ -1,0 +1,122 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme {
+  --color-white: #ffffff;
+  --color-grey: #fafaf7;
+  --color-light-grey: #8a95a1;
+  --color-slate: #5b6a7c;
+  --color-border: #e7e9ec;
+
+  --color-navy: #142b43;
+  --color-navy-100: #142b43;
+  --color-navy-90: #2c4058;
+  --color-navy-80: #43556d;
+  --color-navy-70: #5a6a7b;
+  --color-navy-60: #72808e;
+  --color-navy-50: #8a95a1;
+  --color-navy-40: #a1aac1;
+  --color-navy-30: #b8bfc7;
+  --color-navy-20: #d0d5e0;
+  --color-navy-10: #e7eaef;
+
+  --color-green: #2ab38c;
+  --color-green-100: #2ab38c;
+  --color-green-90: #3fbb97;
+  --color-green-80: #55c2a3;
+  --color-green-10: #e9f7f3;
+
+  --color-orange: #cf8318;
+  --color-red: #b32a2a;
+  --color-brand: #0066ff;
+  --color-brand-2: #00c2a8;
+
+  --color-background: var(--color-white);
+  --color-foreground: var(--color-navy);
+
+  --font-sans:
+    "Poppins", ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto,
+    sans-serif;
+  --font-serif: "PT Serif Caption", ui-serif, Georgia, serif;
+}
+
+.dark {
+  --color-white: #0f1d31;
+  --color-grey: #162a44;
+  --color-border: #233b58;
+
+  --color-navy: #e7eaef;
+  --color-navy-100: #f1f3f7;
+  --color-navy-90: #d8dde5;
+  --color-navy-80: #c0c7d2;
+  --color-navy-70: #a8b1c0;
+  --color-navy-60: #8e98aa;
+  --color-navy-50: #72808e;
+  --color-navy-40: #5a6a7b;
+  --color-navy-30: #43556d;
+  --color-navy-20: #2c4058;
+  --color-navy-10: #1f3551;
+
+  --color-red: #ef6363;
+  --color-green: #3fcc9e;
+  --color-brand: #3d8bff;
+  --color-brand-2: #3fd9c0;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+}
+
+html {
+  background: #11263f;
+}
+
+body {
+  background: var(--color-white);
+  color: var(--color-navy);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  overscroll-behavior-y: none;
+  transition:
+    background-color 200ms ease,
+    color 200ms ease;
+}
+
+button:not(:disabled),
+[role="button"]:not([aria-disabled="true"]) {
+  cursor: pointer;
+}
+
+.btn-brand {
+  background-image: linear-gradient(135deg, #0066ff 0%, #00c2a8 100%);
+  color: #ffffff;
+}
+.btn-brand:hover {
+  background-image: linear-gradient(135deg, #1f7bff 0%, #1fd0b8 100%);
+}
+
+.dark .btn-brand {
+  background-image: linear-gradient(135deg, #3d8bff 0%, #3fd9c0 100%);
+  color: #ffffff;
+}
+.dark .btn-brand:hover {
+  background-image: linear-gradient(135deg, #5ea3ff 0%, #5ee4cf 100%);
+}
+
+.read-more {
+  color: #000000;
+  font-weight: 600;
+  display: inline-flex;
+  align-items: center;
+  gap: 2px;
+}
+.dark .read-more {
+  color: #ffffff;
+}
+.group:hover .read-more {
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}

@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 240" width="800" height="240">
+  <defs>
+    <linearGradient id="brainGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#3D8BFF"/>
+      <stop offset="100%" stop-color="#3FD9C0"/>
+    </linearGradient>
+    <linearGradient id="shareGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FF6B85"/>
+      <stop offset="100%" stop-color="#FFA45E"/>
+    </linearGradient>
+  </defs>
+
+  <g transform="translate(40, 60)">
+    <path d="M 60 20
+             C 30 20, 15 45, 20 70
+             C 10 80, 15 105, 35 110
+             C 40 125, 60 130, 75 120
+             L 75 30
+             C 70 22, 65 20, 60 20 Z"
+          fill="url(#brainGrad)"/>
+    <path d="M 35 45 Q 50 55, 45 70 Q 40 85, 50 100"
+          stroke="white" stroke-width="2.5" fill="none" stroke-linecap="round" opacity="0.85"/>
+    <path d="M 55 35 Q 65 50, 60 65"
+          stroke="white" stroke-width="2.5" fill="none" stroke-linecap="round" opacity="0.85"/>
+
+    <circle cx="115" cy="35" r="9" fill="url(#shareGrad)"/>
+    <circle cx="130" cy="75" r="11" fill="url(#shareGrad)"/>
+    <circle cx="115" cy="115" r="9" fill="url(#shareGrad)"/>
+
+    <line x1="78" y1="50" x2="110" y2="38" stroke="#FF6B85" stroke-width="2.5" stroke-linecap="round"/>
+    <line x1="80" y1="75" x2="122" y2="75" stroke="#FF8870" stroke-width="2.5" stroke-linecap="round"/>
+    <line x1="78" y1="100" x2="110" y2="112" stroke="#FFA45E" stroke-width="2.5" stroke-linecap="round"/>
+  </g>
+
+  <g transform="translate(220, 0)">
+    <text x="0" y="155"
+          font-family="Georgia, 'Playfair Display', serif"
+          font-size="78"
+          font-weight="700"
+          fill="#F1F3F7"
+          letter-spacing="-2">Share<tspan fill="url(#brainGrad)">mind</tspan></text>
+  </g>
+</svg>
