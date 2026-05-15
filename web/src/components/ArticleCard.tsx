@@ -12,9 +12,6 @@ const EXCERPT_LEN = 100;
 export default function ArticleCard({ article, topic }: Props) {
   const { t } = useTranslation();
   const isTruncated = article.content.length > EXCERPT_LEN;
-  const excerpt = isTruncated
-    ? article.content.slice(0, EXCERPT_LEN).trimEnd()
-    : article.content;
 
   return (
     <article className="group">
