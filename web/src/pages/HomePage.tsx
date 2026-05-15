@@ -68,28 +68,34 @@ function FittingTopicPills({
       pills.forEach((p) => {
         p.style.display = "";
       });
-      const containerWidth = container.clientWidth;
-      const positions = pills.map((p) => ({
-        el: p,
-        right: p.offsetLeft + p.offsetWidth,
-      }));
-      positions.forEach(({ el, right }) => {
-        if (right > containerWidth) {
+      const containerRight = container.getBoundingClientRect().right;
+      const rights = pills.map((p) => p.getBoundingClientRect().right);
+      pills.forEach((el, i) => {
+        if (rights[i] > containerRight + 0.5) {
           el.style.display = "none";
         }
       });
     };
 
     measure();
+    const raf = requestAnimationFrame(measure);
+    let fontReady: Promise<FontFaceSet> | undefined;
+    if (document.fonts && document.fonts.ready) {
+      fontReady = document.fonts.ready;
+      void fontReady.then(() => measure());
+    }
     const ro = new ResizeObserver(measure);
     ro.observe(container);
-    return () => ro.disconnect();
+    return () => {
+      ro.disconnect();
+      cancelAnimationFrame(raf);
+    };
   }, [topics, activeIds]);
 
   return (
     <div
       ref={containerRef}
-      className="flex flex-nowrap items-center gap-2 mb-8 overflow-hidden"
+      className="relative flex flex-nowrap items-center gap-2 mb-8 overflow-hidden w-full"
     >
       {topics.map((t) => {
         const active = activeIds.includes(t.id);
