@@ -72,7 +72,3 @@ The frontend defaults to `http://localhost:8888`. Override via `VITE_API_URL`.
         ├── sharemind-logo.svg
         └── sharemind-logo-dark.svg
 ```
-
-## License
-
-Daniel Kolář — CRUD demo for academic purposes.
