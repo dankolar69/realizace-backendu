@@ -35,6 +35,7 @@
   },
   "article": {
     "back": "← Zpět na články",
+    "deleteTitle": "Smazat článek",
     "confirmDelete": "Smazat tento článek? Tuto akci nelze vrátit zpět.",
     "createTitle": "Nový článek",
     "createSubtitle": "Sdílej něco s komunitou.",

@@ -4,6 +4,7 @@ import { useTranslation } from "react-i18next";
 import { articlesApi } from "../api/articles";
 import type { Article } from "../types";
 import ErrorBanner from "../components/ErrorBanner";
+import ConfirmDialog from "../components/ConfirmDialog";
 
 export default function ArticleDetailPage() {
   const { t } = useTranslation();
@@ -13,6 +14,7 @@ export default function ArticleDetailPage() {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<unknown>(null);
   const [deleting, setDeleting] = useState(false);
+  const [confirmOpen, setConfirmOpen] = useState(false);
 
   useEffect(() => {
     if (!id) return;
@@ -26,7 +28,6 @@ export default function ArticleDetailPage() {
 
   async function handleDelete() {
     if (!id) return;
-    if (!confirm(t("article.confirmDelete"))) return;
     setDeleting(true);
     try {
       await articlesApi.remove(id);
@@ -34,6 +35,7 @@ export default function ArticleDetailPage() {
     } catch (e) {
       setError(e);
       setDeleting(false);
+      setConfirmOpen(false);
     }
   }
 
@@ -102,7 +104,7 @@ export default function ArticleDetailPage() {
             </Link>
             <button
               type="button"
-              onClick={handleDelete}
+              onClick={() => setConfirmOpen(true)}
               disabled={deleting}
               className="inline-flex items-center gap-1 rounded-lg border border-red/40 bg-white px-4 py-2.5 text-sm font-medium text-red transition hover:bg-red/5 disabled:opacity-50"
             >
@@ -111,6 +113,16 @@ export default function ArticleDetailPage() {
           </div>
         </div>
       </div>
+
+      <ConfirmDialog
+        open={confirmOpen}
+        title={t("article.deleteTitle")}
+        message={t("article.confirmDelete")}
+        destructive
+        loading={deleting}
+        onConfirm={handleDelete}
+        onCancel={() => setConfirmOpen(false)}
+      />
     </article>
   );
 }

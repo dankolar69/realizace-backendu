@@ -35,6 +35,7 @@
   },
   "article": {
     "back": "← Back to articles",
+    "deleteTitle": "Delete article",
     "confirmDelete": "Delete this article? This cannot be undone.",
     "createTitle": "New article",
     "createSubtitle": "Share something with the community.",
